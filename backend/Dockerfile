@@ -1,6 +1,5 @@
 FROM node:latest
-ENV NODE_ENV development
-WORKDIR /usr/src/app
+WORKDIR /root
 COPY ["package.json", "package-lock.json", "./"]
 RUN npm i
 COPY . .
