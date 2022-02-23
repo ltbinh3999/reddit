@@ -19,7 +19,9 @@ services:
       context: ./database
       dockerfile: Dockerfile
     container_name: database
+    ports:
+      - 5432:5432
     environment:
       - POSTGRES_PASSWORD=1
       - POSTGRES_USER=root
-      - POSTGRES_DB=root
+      - POSTGRES_DB=app

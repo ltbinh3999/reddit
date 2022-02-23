@@ -3,7 +3,7 @@
 ## run
 
 ```bash
-docker-compose -f docker-compose.yml up --build -d
+bash ./start.sh docker-compose.dev.yml
 ```
 
 visit <http://localhost:3000/>
