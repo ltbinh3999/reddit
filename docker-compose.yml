@@ -1,13 +1,25 @@
-version: '3.4'
+version: "3.4"
 
 services:
   server:
-    image: server
+    image: backend
+    container_name: backend
     build:
-      context: ./
+      context: ./backend
       dockerfile: Dockerfile
     ports:
       - 3000:3000
       - 24678:24678
     volumes:
-      - ./:/usr/src/app
+      - ./backend:/usr/src/app
+
+  database:
+    image: database
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: database
+    environment:
+      - POSTGRES_PASSWORD=1
+      - POSTGRES_USER=root
+      - POSTGRES_DB=root
