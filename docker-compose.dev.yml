@@ -1,0 +1,36 @@
+version: "3.4"
+
+services:
+  backend:
+    image: backend
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+      - 24678:24678
+    volumes:
+      - ./backend:/root
+    environment:
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGDATABASE=app 
+      - PGUSER=app_user
+      - PGPASSWORD=app_user
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: postgres
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=app
+
