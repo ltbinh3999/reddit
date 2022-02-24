@@ -26,6 +26,19 @@ VALUES
   ((SELECT id FROM account WHERE name = 'a1'), 'content1', 'title1'),
   ((SELECT id FROM account WHERE name = 'a2'), 'content2', 'title2'),
   ((SELECT id FROM account WHERE name = 'a3'), 'content3', 'title3'),
+  ((SELECT id FROM account WHERE name = 'a1'), 'content1', 'title1'),
+  ((SELECT id FROM account WHERE name = 'a2'), 'content2', 'title2'),
+  ((SELECT id FROM account WHERE name = 'a3'), 'content3', 'title3'),
+  ((SELECT id FROM account WHERE name = 'a1'), 'content1', 'title1'),
+  ((SELECT id FROM account WHERE name = 'a2'), 'content2', 'title2'),
+  ((SELECT id FROM account WHERE name = 'a3'), 'content3', 'title3'),
+  ((SELECT id FROM account WHERE name = 'a1'), 'content1', 'title1'),
+  ((SELECT id FROM account WHERE name = 'a2'), 'content2', 'title2'),
+  ((SELECT id FROM account WHERE name = 'a3'), 'content3', 'title3'),
+  ((SELECT id FROM account WHERE name = 'a1'), 'content1', 'title1'),
+  ((SELECT id FROM account WHERE name = 'a2'), 'content2', 'title2'),
+  ((SELECT id FROM account WHERE name = 'a3'), 'content3', 'title3'),  
   ((SELECT id FROM account WHERE name = 'a3'), 'content', 'title3');
+
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO app_user;
