@@ -1,6 +1,5 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE ROLE app_user WITH LOGIN ENCRYPTED PASSWORD '1';
-GRANT ALL PRIVILEGES ON DATABASE app TO app_user;
+CREATE ROLE app_user WITH LOGIN ENCRYPTED PASSWORD 'app_user';
 
 DROP TABLE IF EXISTS account;
 CREATE TABLE account (
@@ -28,3 +27,5 @@ VALUES
   ((SELECT id FROM account WHERE name = 'a2'), 'content2', 'title2'),
   ((SELECT id FROM account WHERE name = 'a3'), 'content3', 'title3'),
   ((SELECT id FROM account WHERE name = 'a3'), 'content', 'title3');
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO app_user;

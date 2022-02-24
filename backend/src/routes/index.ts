@@ -1,15 +1,11 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import {Pool} from 'pg';
+import { db } from '$lib/db';
 
 export const get: RequestHandler = async () => {
-  const pool = new Pool()
-  await pool.connect()
-  const res = await pool.query('SELECT NOW()')
-  console.log(res);
-  await pool.end()
+  const result = await db.getAllPost()
 	return {
 		body: {
-			item: 'sample'
+      posts: result
 		}
 	};
 }

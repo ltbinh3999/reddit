@@ -11,13 +11,13 @@ services:
       - 3000:3000
       - 24678:24678
     volumes:
-      - ./backend:/app
+      - ./backend:/root
     environment:
-      - PGUSER=app_user
       - PGHOST=postgres
-      - PGPASSWORD=1
-      - PGDATABASE=app 
       - PGPORT=5432
+      - PGDATABASE=app 
+      - PGUSER=app_user
+      - PGPASSWORD=app_user
     depends_on:
       - postgres
   
@@ -30,8 +30,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_PASSWORD=1
+      - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=app
-    logging:
-      driver: none
+
