@@ -1,20 +1,18 @@
 import {Pool} from 'pg';
 const pool = new Pool()
 await pool.connect()
-console.log("DATABASE CONNECT SUCESSFULLY");
 export const db ={
   getAllPost : async () => {
     const result = await pool.query(`
-    SELECT TITLE,
-      CONTENT,
-      ACCOUNT.NAME
-    FROM POST
-    INNER JOIN ACCOUNT ON POST.ACCOUNT_ID = ACCOUNT.ID
-    LIMIT 5;
+    SELECT title,
+      content,
+      users.username
+    FROM posts
+    INNER JOIN users ON posts.user_id = users.id;
     `)
-    console.log("GET ALL POST");
+    console.log(result.rows)
     return result.rows
+    
   }
-
 }
 

@@ -20,7 +20,7 @@ services:
       - PGPASSWORD=app_user
     depends_on:
       - postgres
-  
+
   postgres:
     image: postgres
     build:

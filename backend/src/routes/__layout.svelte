@@ -1,10 +1,8 @@
 <nav>
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/git">Git</a>
-  <a href="/contact">Contact</a>
+	<a href="/">Home</a>
+	<a href="/about">About</a>
+	<a href="/signin">Sign In</a>
+	<a href="/signun">Sign Up</a>
 </nav>
-<slot></slot>
-<footer>
-  FOOTER
-</footer>
+<slot />
+<footer>FOOTER</footer>
