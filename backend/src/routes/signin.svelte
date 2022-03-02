@@ -1,5 +1,5 @@
 <form method="post">
 	<input type="text" name="username" />
 	<input type="password" name="password" />
-	<input type="submit" value="Sign Up" />
+	<input type="submit" value="Sign In" />
 </form>

@@ -11,15 +11,14 @@ export const signup = async (username: string, password: string):
     return { error: 'EMPTY_PASSWORD' }
   }
 
-  const query = `
+  const addUser = `
   INSERT INTO users(username, password, salt) 
   VALUES ($1,$2,$3) 
   RETURNING id`
   const salt = randomBytes(16).toString('hex')
   const hPassword = (await promisify(scrypt)(password, salt, 64) as Buffer).toString('hex')
-
   try {
-    const result = await pool.query(query, [username, hPassword, salt])
+    const result = await pool.query(addUser, [username, hPassword, salt])
     return { userId: result.rows[0] as string }
   } catch (error) {
     if (error.code === '23505') {

@@ -14,3 +14,4 @@ export async function post({ request }) {
     body: { userId }
   }
 }
+//TODO: refactor this like signin.ts
