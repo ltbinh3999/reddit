@@ -16,8 +16,8 @@ services:
       - PGHOST=postgres
       - PGPORT=5432
       - PGDATABASE=app 
-      - PGUSER=app_user
-      - PGPASSWORD=app_user
+      - PGUSER=app
+      - PGPASSWORD=app
     depends_on:
       - postgres
 
