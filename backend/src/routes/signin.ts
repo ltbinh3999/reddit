@@ -4,7 +4,6 @@ import { promisify } from 'util'
 import jwt from 'jsonwebtoken'
 import { serialize } from 'cookie';
 
-
 export async function post({ request }) {
   const {username,password} = Object.fromEntries(new URLSearchParams(await request.text()))
   if (username.length === 0) {     
@@ -28,6 +27,13 @@ export async function post({ request }) {
   }
   
   const token = jwt.sign({id}, process.env.JWT_SECRET_KEY, {expiresIn: "1d"})
+  const addToken=`
+  UPDATE users
+  SET token =$1
+  WHERE username =$2
+  `
+  await pool.query(addToken, [token, username])
+
   return {status:302, headers: {
     'Set-Cookie': serialize('id', token, {
         path: '/',

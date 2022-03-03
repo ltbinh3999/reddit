@@ -1,1 +1,5 @@
-<h1>profile</h1>
+<script>
+	export let username;
+</script>
+
+<h1>Hello {username}</h1>

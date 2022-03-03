@@ -8,7 +8,8 @@ CREATE TABLE users (
   id UUID default uuid_generate_v4() primary key,
   username text not null unique,
   password text not null,
-  salt text not null unique
+  salt text not null unique,
+  token text
 );
 
 
